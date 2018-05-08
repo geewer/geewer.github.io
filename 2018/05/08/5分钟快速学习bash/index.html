@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="linux,shell,bash," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言Bash 是一个为 GNU 计划编写的 Unix shell，是 Linux 和 Mac OS X 下的默认 shell。 以下大多数例子可以作为脚本的一部分运行，也可直接在 shell 下交互执行。通常我们也叫做shell脚本，下面我们快速的了解下bash的语法。在又编程基础的情况下，5分钟足以了解基本shell脚本的编写。 官方全文档链接 1234567891011121314151617">
+<meta name="keywords" content="linux,shell,bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5分钟快速学习bash">
+<meta property="og:url" content="http://blog.geewer.com/2018/05/08/5分钟快速学习bash/index.html">
+<meta property="og:site_name" content="Geewer Tech">
+<meta property="og:description" content="前言Bash 是一个为 GNU 计划编写的 Unix shell，是 Linux 和 Mac OS X 下的默认 shell。 以下大多数例子可以作为脚本的一部分运行，也可直接在 shell 下交互执行。通常我们也叫做shell脚本，下面我们快速的了解下bash的语法。在又编程基础的情况下，5分钟足以了解基本shell脚本的编写。 官方全文档链接 1234567891011121314151617">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-08T07:07:29.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5分钟快速学习bash">
+<meta name="twitter:description" content="前言Bash 是一个为 GNU 计划编写的 Unix shell，是 Linux 和 Mac OS X 下的默认 shell。 以下大多数例子可以作为脚本的一部分运行，也可直接在 shell 下交互执行。通常我们也叫做shell脚本，下面我们快速的了解下bash的语法。在又编程基础的情况下，5分钟足以了解基本shell脚本的编写。 官方全文档链接 1234567891011121314151617">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.geewer.com/2018/05/08/5分钟快速学习bash/"/>
+
+
+
+
+
+  <title>5分钟快速学习bash | Geewer Tech</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Geewer Tech</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.geewer.com/2018/05/08/5分钟快速学习bash/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Geewer Team">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Geewer Tech">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">5分钟快速学习bash</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-08T15:03:01+08:00">
+                2018-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/语言学习/" itemprop="url" rel="index">
+                    <span itemprop="name">语言学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Bash 是一个为 GNU 计划编写的 Unix shell，是 Linux 和 Mac OS X 下的默认 shell。 以下大多数例子可以作为脚本的一部分运行，也可直接在 shell 下交互执行。通常我们也叫做shell脚本，下面我们快速的了解下bash的语法。在又编程基础的情况下，5分钟足以了解基本shell脚本的编写。</p>
+<p><a href="https://www.gnu.org/software/bash/manual/bashref.html" target="_blank" rel="noopener">官方全文档链接</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># 脚本的第一行叫 shebang，用来告知系统如何执行该脚本:</span><br><span class="line"># 参见： http://en.wikipedia.org/wiki/Shebang_(Unix)</span><br><span class="line"># 如你所见，注释以 # 开头，shebang 也是注释。</span><br><span class="line"></span><br><span class="line"># 显示 “Hello world!”</span><br><span class="line">echo Hello world!</span><br><span class="line"></span><br><span class="line"># 每一句指令以换行或分号隔开：</span><br><span class="line">echo &apos;This is the first line&apos;; echo &apos;This is the second line&apos;</span><br><span class="line"></span><br><span class="line"># 声明一个变量：</span><br><span class="line">Variable=&quot;Some string&quot;</span><br><span class="line"></span><br><span class="line"># 下面是错误的做法：</span><br><span class="line">Variable = &quot;Some string&quot;</span><br><span class="line"># Bash 会把 Variable 当做一个指令，由于找不到该指令，因此这里会报错。</span><br><span class="line"></span><br><span class="line"># 也不可以这样：</span><br><span class="line">Variable= &apos;Some string&apos;</span><br><span class="line"># Bash 会认为 &apos;Some string&apos; 是一条指令，由于找不到该指令，这里再次报错。</span><br><span class="line"># （这个例子中 &apos;Variable=&apos; 这部分会被当作仅对 &apos;Some string&apos; 起作用的赋值。）</span><br><span class="line"></span><br><span class="line"># 使用变量：</span><br><span class="line">echo $Variable</span><br><span class="line">echo &quot;$Variable&quot;</span><br><span class="line">echo &apos;$Variable&apos;</span><br><span class="line"># 当你赋值 (assign) 、导出 (export)，或者以其他方式使用变量时，变量名前不加 $。</span><br><span class="line"># 如果要使用变量的值， 则要加 $。</span><br><span class="line"># 注意： &apos; (单引号) 不会展开变量（即会屏蔽掉变量）。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 在变量内部进行字符串代换</span><br><span class="line">echo $&#123;Variable/Some/A&#125;</span><br><span class="line"># 会把 Variable 中首次出现的 &quot;some&quot; 替换成 “A”。</span><br><span class="line"></span><br><span class="line"># 变量的截取</span><br><span class="line">Length=7</span><br><span class="line">echo $&#123;Variable:0:Length&#125;</span><br><span class="line"># 这样会仅返回变量值的前7个字符</span><br><span class="line"></span><br><span class="line"># 变量的默认值</span><br><span class="line">echo $&#123;Foo:-&quot;DefaultValueIfFooIsMissingOrEmpty&quot;&#125;</span><br><span class="line"># 对 null (Foo=) 和空串 (Foo=&quot;&quot;) 起作用； 零（Foo=0）时返回0</span><br><span class="line"># 注意这仅返回默认值而不是改变变量的值</span><br><span class="line"></span><br><span class="line"># 内置变量：</span><br><span class="line"># 下面的内置变量很有用</span><br><span class="line">echo &quot;Last program return value: $?&quot;</span><br><span class="line">echo &quot;Script&apos;s PID: $$&quot;</span><br><span class="line">echo &quot;Number of arguments: $#&quot;</span><br><span class="line">echo &quot;Scripts arguments: $@&quot;</span><br><span class="line">echo &quot;Scripts arguments separated in different variables: $1 $2...&quot;</span><br><span class="line"></span><br><span class="line"># 读取输入：</span><br><span class="line">echo &quot;What&apos;s your name?&quot;</span><br><span class="line">read Name # 这里不需要声明新变量</span><br><span class="line">echo Hello, $Name!</span><br><span class="line"></span><br><span class="line"># 通常的 if 结构看起来像这样：</span><br><span class="line"># &apos;man test&apos; 可查看更多的信息</span><br><span class="line">if [ $Name -ne $USER ]</span><br><span class="line">then</span><br><span class="line">    echo &quot;Your name isn&apos;t your username&quot;</span><br><span class="line">else</span><br><span class="line">    echo &quot;Your name is your username&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># 根据上一个指令执行结果决定是否执行下一个指令</span><br><span class="line">echo &quot;Always executed&quot; || echo &quot;Only executed if first command fails&quot;</span><br><span class="line">echo &quot;Always executed&quot; &amp;&amp; echo &quot;Only executed if first command does NOT fail&quot;</span><br><span class="line"></span><br><span class="line"># 在 if 语句中使用 &amp;&amp; 和 || 需要多对方括号</span><br><span class="line">if [ $Name == &quot;Steve&quot; ] &amp;&amp; [ $Age -eq 15 ]</span><br><span class="line">then</span><br><span class="line">    echo &quot;This will run if $Name is Steve AND $Age is 15.&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">if [ $Name == &quot;Daniya&quot; ] || [ $Name == &quot;Zach&quot; ]</span><br><span class="line">then</span><br><span class="line">    echo &quot;This will run if $Name is Daniya OR Zach.&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"># 表达式的格式如下:</span><br><span class="line">echo $(( 10 + 5 ))</span><br><span class="line"></span><br><span class="line"># 与其他编程语言不同的是，bash 运行时依赖上下文。比如，使用 ls 时，列出当前目录。</span><br><span class="line">ls</span><br><span class="line"></span><br><span class="line"># 指令可以带有选项：</span><br><span class="line">ls -l # 列出文件和目录的详细信息</span><br><span class="line"></span><br><span class="line"># 前一个指令的输出可以当作后一个指令的输入。grep 用来匹配字符串。</span><br><span class="line"># 用下面的指令列出当前目录下所有的 txt 文件：</span><br><span class="line">ls -l | grep &quot;\.txt&quot;</span><br><span class="line"></span><br><span class="line"># 重定向输入和输出（标准输入，标准输出，标准错误）。</span><br><span class="line"># 以 ^EOF$ 作为结束标记从标准输入读取数据并覆盖 hello.py :</span><br><span class="line">cat &gt; hello.py &lt;&lt; EOF</span><br><span class="line">#!/usr/bin/env python</span><br><span class="line">from __future__ import print_function</span><br><span class="line">import sys</span><br><span class="line">print(&quot;#stdout&quot;, file=sys.stdout)</span><br><span class="line">print(&quot;#stderr&quot;, file=sys.stderr)</span><br><span class="line">for line in sys.stdin:</span><br><span class="line">    print(line, file=sys.stdout)</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 重定向可以到输出，输入和错误输出。</span><br><span class="line">python hello.py &lt; &quot;input.in&quot;</span><br><span class="line">python hello.py &gt; &quot;output.out&quot;</span><br><span class="line">python hello.py 2&gt; &quot;error.err&quot;</span><br><span class="line">python hello.py &gt; &quot;output-and-error.log&quot; 2&gt;&amp;1</span><br><span class="line">python hello.py &gt; /dev/null 2&gt;&amp;1</span><br><span class="line"># &gt; 会覆盖已存在的文件， &gt;&gt; 会以累加的方式输出文件中。</span><br><span class="line">python hello.py &gt;&gt; &quot;output.out&quot; 2&gt;&gt; &quot;error.err&quot;</span><br><span class="line"></span><br><span class="line"># 覆盖 output.out , 追加 error.err 并统计行数</span><br><span class="line">info bash &apos;Basic Shell Features&apos; &apos;Redirections&apos; &gt; output.out 2&gt;&gt; error.err</span><br><span class="line">wc -l output.out error.err</span><br><span class="line"></span><br><span class="line"># 运行指令并打印文件描述符 （比如 /dev/fd/123）</span><br><span class="line"># 具体可查看： man fd</span><br><span class="line">echo &lt;(echo &quot;#helloworld&quot;)</span><br><span class="line"></span><br><span class="line"># 以 &quot;#helloworld&quot; 覆盖 output.out:</span><br><span class="line">cat &gt; output.out &lt;(echo &quot;#helloworld&quot;)</span><br><span class="line">echo &quot;#helloworld&quot; &gt; output.out</span><br><span class="line">echo &quot;#helloworld&quot; | cat &gt; output.out</span><br><span class="line">echo &quot;#helloworld&quot; | tee output.out &gt;/dev/null</span><br><span class="line"></span><br><span class="line"># 清理临时文件并显示详情（增加 &apos;-i&apos; 选项启用交互模式）</span><br><span class="line">rm -v output.out error.err output-and-error.log</span><br><span class="line"></span><br><span class="line"># 一个指令可用 $( ) 嵌套在另一个指令内部：</span><br><span class="line"># 以下的指令会打印当前目录下的目录和文件总数</span><br><span class="line">echo &quot;There are $(ls | wc -l) items here.&quot;</span><br><span class="line"></span><br><span class="line"># 反引号 `` 起相同作用，但不允许嵌套</span><br><span class="line"># 优先使用 $(  ).</span><br><span class="line">echo &quot;There are `ls | wc -l` items here.&quot;</span><br><span class="line"></span><br><span class="line"># Bash 的 case 语句与 Java 和 C++ 中的 switch 语句类似:</span><br><span class="line">case &quot;$Variable&quot; in</span><br><span class="line">    # 列出需要匹配的字符串</span><br><span class="line">    0) echo &quot;There is a zero.&quot;;;</span><br><span class="line">    1) echo &quot;There is a one.&quot;;;</span><br><span class="line">    *) echo &quot;It is not null.&quot;;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line"># 循环遍历给定的参数序列:</span><br><span class="line"># 变量$Variable 的值会被打印 3 次。</span><br><span class="line">for Variable in &#123;1..3&#125;</span><br><span class="line">do</span><br><span class="line">    echo &quot;$Variable&quot;</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># 或传统的 “for循环” ：</span><br><span class="line">for ((a=1; a &lt;= 3; a++))</span><br><span class="line">do</span><br><span class="line">    echo $a</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># 也可以用于文件</span><br><span class="line"># 用 cat 输出 file1 和 file2 内容</span><br><span class="line">for Variable in file1 file2</span><br><span class="line">do</span><br><span class="line">    cat &quot;$Variable&quot;</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># 或作用于其他命令的输出</span><br><span class="line"># 对 ls 输出的文件执行 cat 指令。</span><br><span class="line">for Output in $(ls)</span><br><span class="line">do</span><br><span class="line">    cat &quot;$Output&quot;</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># while 循环：</span><br><span class="line">while [ true ]</span><br><span class="line">do</span><br><span class="line">    echo &quot;loop body here...&quot;</span><br><span class="line">    break</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"># 你也可以使用函数</span><br><span class="line"># 定义函数：</span><br><span class="line">function foo ()</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;Arguments work just like script arguments: $@&quot;</span><br><span class="line">    echo &quot;And: $1 $2...&quot;</span><br><span class="line">    echo &quot;This is a function&quot;</span><br><span class="line">    return 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 更简单的方法</span><br><span class="line">bar ()</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;Another way to declare functions!&quot;</span><br><span class="line">    return 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 调用函数</span><br><span class="line">foo &quot;My name is&quot; $Name</span><br><span class="line"></span><br><span class="line"># 有很多有用的指令需要学习:</span><br><span class="line"># 打印 file.txt 的最后 10 行</span><br><span class="line">tail -n 10 file.txt</span><br><span class="line"># 打印 file.txt 的前 10 行</span><br><span class="line">head -n 10 file.txt</span><br><span class="line"># 将 file.txt 按行排序</span><br><span class="line">sort file.txt</span><br><span class="line"># 报告或忽略重复的行，用选项 -d 打印重复的行</span><br><span class="line">uniq -d file.txt</span><br><span class="line"># 打印每行中 &apos;,&apos; 之前内容</span><br><span class="line">cut -d &apos;,&apos; -f 1 file.txt</span><br><span class="line"># 将 file.txt 文件所有 &apos;okay&apos; 替换为 &apos;great&apos;, （兼容正则表达式）</span><br><span class="line">sed -i &apos;s/okay/great/g&apos; file.txt</span><br><span class="line"># 将 file.txt 中匹配正则的行打印到标准输出</span><br><span class="line"># 这里打印以 &quot;foo&quot; 开头, &quot;bar&quot; 结尾的行</span><br><span class="line">grep &quot;^foo.*bar$&quot; file.txt</span><br><span class="line"># 使用选项 &quot;-c&quot; 统计行数</span><br><span class="line">grep -c &quot;^foo.*bar$&quot; file.txt</span><br><span class="line"># 如果只是要按字面形式搜索字符串而不是按正则表达式，使用 fgrep (或 grep -F)</span><br><span class="line">fgrep &quot;^foo.*bar$&quot; file.txt </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 以 bash 内建的 &apos;help&apos; 指令阅读 Bash 自带文档：</span><br><span class="line">help</span><br><span class="line">help help</span><br><span class="line">help for</span><br><span class="line">help return</span><br><span class="line">help source</span><br><span class="line">help .</span><br><span class="line"></span><br><span class="line"># 用 man 指令阅读相关的 Bash 手册</span><br><span class="line">apropos bash</span><br><span class="line">man 1 bash</span><br><span class="line">man bash</span><br><span class="line"></span><br><span class="line"># 用 info 指令查阅命令的 info 文档 （info 中按 ? 显示帮助信息）</span><br><span class="line">apropos info | grep &apos;^info.*(&apos;</span><br><span class="line">man info</span><br><span class="line">info info</span><br><span class="line">info 5 info</span><br><span class="line"></span><br><span class="line"># 阅读 Bash 的 info 文档：</span><br><span class="line">info bash</span><br><span class="line">info bash &apos;Bash Features&apos;</span><br><span class="line">info bash 6</span><br><span class="line">info --apropos bash</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux-shell-bash/" rel="tag"># linux,shell,bash</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Geewer Team" />
+            
+              <p class="site-author-name" itemprop="name">Geewer Team</p>
+              <p class="site-description motion-element" itemprop="description">Change yourself better than ever!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/geewer" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lipan@geewer.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.geewer.com/" title="Geewer Tech" target="_blank">Geewer Tech</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Geewer Team</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="http://www.geewer.com">Geewer Tech</a> 技术支持</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
