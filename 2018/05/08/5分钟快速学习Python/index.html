@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言人生苦短，请用python。 Python 由 Guido Van Rossum 在90年代初创建。 它现在是最流行的语言之一 我喜爱python是因为它有极为清晰的语法，甚至可以说，它就是可以执行的伪代码。 注意: 这篇文章针对的版本是Python 2.7 官方文档链接 快速入门123456789101112131415161718192021222324252627282930313233">
+<meta name="keywords" content="geewer,积微科技,广州积微信息科技有限公司">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5分钟快速学习Python">
+<meta property="og:url" content="http://blog.geewer.com/2018/05/08/5分钟快速学习Python/index.html">
+<meta property="og:site_name" content="Geewer Tech">
+<meta property="og:description" content="前言人生苦短，请用python。 Python 由 Guido Van Rossum 在90年代初创建。 它现在是最流行的语言之一 我喜爱python是因为它有极为清晰的语法，甚至可以说，它就是可以执行的伪代码。 注意: 这篇文章针对的版本是Python 2.7 官方文档链接 快速入门123456789101112131415161718192021222324252627282930313233">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-08T07:30:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5分钟快速学习Python">
+<meta name="twitter:description" content="前言人生苦短，请用python。 Python 由 Guido Van Rossum 在90年代初创建。 它现在是最流行的语言之一 我喜爱python是因为它有极为清晰的语法，甚至可以说，它就是可以执行的伪代码。 注意: 这篇文章针对的版本是Python 2.7 官方文档链接 快速入门123456789101112131415161718192021222324252627282930313233">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.geewer.com/2018/05/08/5分钟快速学习Python/"/>
+
+
+
+
+
+  <title>5分钟快速学习Python | Geewer Tech</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Geewer Tech</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.geewer.com/2018/05/08/5分钟快速学习Python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Geewer Team">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Geewer Tech">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">5分钟快速学习Python</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-08T15:27:15+08:00">
+                2018-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/语言学习/" itemprop="url" rel="index">
+                    <span itemprop="name">语言学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/语言学习/5分钟系列/" itemprop="url" rel="index">
+                    <span itemprop="name">5分钟系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>人生苦短，请用python。</p>
+<p>Python 由 Guido Van Rossum 在90年代初创建。 它现在是最流行的语言之一 我喜爱python是因为它有极为清晰的语法，甚至可以说，它就是可以执行的伪代码。</p>
+<p><strong>注意: 这篇文章针对的版本是Python 2.7</strong></p>
+<p><a href="https://docs.python.org/2.7/" target="_blank" rel="noopener">官方文档链接</a></p>
+<h3 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br></pre></td><td class="code"><pre><span class="line"># 单行注释</span><br><span class="line">&quot;&quot;&quot; 多行字符串可以用</span><br><span class="line">    三个引号包裹，不过这也可以被当做</span><br><span class="line">    多行注释</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">####################################################</span><br><span class="line">## 1. 原始数据类型和操作符</span><br><span class="line">####################################################</span><br><span class="line"></span><br><span class="line"># 数字类型</span><br><span class="line">3  # =&gt; 3</span><br><span class="line"></span><br><span class="line"># 简单的算数</span><br><span class="line">1 + 1  # =&gt; 2</span><br><span class="line">8 - 1  # =&gt; 7</span><br><span class="line">10 * 2  # =&gt; 20</span><br><span class="line">35 / 5  # =&gt; 7</span><br><span class="line"></span><br><span class="line"># 整数的除法会自动取整</span><br><span class="line">5 / 2  # =&gt; 2</span><br><span class="line"></span><br><span class="line"># 要做精确的除法，我们需要引入浮点数</span><br><span class="line">2.0     # 浮点数</span><br><span class="line">11.0 / 4.0  # =&gt; 2.75 精确多了</span><br><span class="line"></span><br><span class="line"># 括号具有最高优先级</span><br><span class="line">(1 + 3) * 2  # =&gt; 8</span><br><span class="line"></span><br><span class="line"># 布尔值也是基本的数据类型</span><br><span class="line">True</span><br><span class="line">False</span><br><span class="line"></span><br><span class="line"># 用 not 来取非</span><br><span class="line">not True  # =&gt; False</span><br><span class="line">not False  # =&gt; True</span><br><span class="line"></span><br><span class="line"># 相等</span><br><span class="line">1 == 1  # =&gt; True</span><br><span class="line">2 == 1  # =&gt; False</span><br><span class="line"></span><br><span class="line"># 不等</span><br><span class="line">1 != 1  # =&gt; False</span><br><span class="line">2 != 1  # =&gt; True</span><br><span class="line"></span><br><span class="line"># 更多的比较操作符</span><br><span class="line">1 &lt; 10  # =&gt; True</span><br><span class="line">1 &gt; 10  # =&gt; False</span><br><span class="line">2 &lt;= 2  # =&gt; True</span><br><span class="line">2 &gt;= 2  # =&gt; True</span><br><span class="line"></span><br><span class="line"># 比较运算可以连起来写！</span><br><span class="line">1 &lt; 2 &lt; 3  # =&gt; True</span><br><span class="line">2 &lt; 3 &lt; 2  # =&gt; False</span><br><span class="line"></span><br><span class="line"># 字符串通过 &quot; 或 &apos; 括起来</span><br><span class="line">&quot;This is a string.&quot;</span><br><span class="line">&apos;This is also a string.&apos;</span><br><span class="line"></span><br><span class="line"># 字符串通过加号拼接</span><br><span class="line">&quot;Hello &quot; + &quot;world!&quot;  # =&gt; &quot;Hello world!&quot;</span><br><span class="line"></span><br><span class="line"># 字符串可以被视为字符的列表</span><br><span class="line">&quot;This is a string&quot;[0]  # =&gt; &apos;T&apos;</span><br><span class="line"></span><br><span class="line"># % 可以用来格式化字符串</span><br><span class="line">&quot;%s can be %s&quot; % (&quot;strings&quot;, &quot;interpolated&quot;)</span><br><span class="line"></span><br><span class="line"># 也可以用 format 方法来格式化字符串</span><br><span class="line"># 推荐使用这个方法</span><br><span class="line">&quot;&#123;0&#125; can be &#123;1&#125;&quot;.format(&quot;strings&quot;, &quot;formatted&quot;)</span><br><span class="line"># 也可以用变量名代替数字</span><br><span class="line">&quot;&#123;name&#125; wants to eat &#123;food&#125;&quot;.format(name=&quot;Bob&quot;, food=&quot;lasagna&quot;)</span><br><span class="line"></span><br><span class="line"># None 是对象</span><br><span class="line">None  # =&gt; None</span><br><span class="line"></span><br><span class="line"># 不要用相等 `==` 符号来和None进行比较</span><br><span class="line"># 要用 `is`</span><br><span class="line">&quot;etc&quot; is None  # =&gt; False</span><br><span class="line">None is None  # =&gt; True</span><br><span class="line"></span><br><span class="line"># &apos;is&apos; 可以用来比较对象的相等性</span><br><span class="line"># 这个操作符在比较原始数据时没多少用，但是比较对象时必不可少</span><br><span class="line"></span><br><span class="line"># None, 0, 和空字符串都被算作 False</span><br><span class="line"># 其他的均为 True</span><br><span class="line">0 == False  # =&gt; True</span><br><span class="line">&quot;&quot; == False  # =&gt; True</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">####################################################</span><br><span class="line">## 2. 变量和集合</span><br><span class="line">####################################################</span><br><span class="line"></span><br><span class="line"># 很方便的输出</span><br><span class="line">print &quot;I&apos;m Python. Nice to meet you!&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 给变量赋值前不需要事先声明</span><br><span class="line">some_var = 5    # 一般建议使用小写字母和下划线组合来做为变量名</span><br><span class="line">some_var  # =&gt; 5</span><br><span class="line"></span><br><span class="line"># 访问未赋值的变量会抛出异常</span><br><span class="line"># 可以查看控制流程一节来了解如何异常处理</span><br><span class="line">some_other_var  # 抛出 NameError</span><br><span class="line"></span><br><span class="line"># if 语句可以作为表达式来使用</span><br><span class="line">&quot;yahoo!&quot; if 3 &gt; 2 else 2  # =&gt; &quot;yahoo!&quot;</span><br><span class="line"></span><br><span class="line"># 列表用来保存序列</span><br><span class="line">li = []</span><br><span class="line"># 可以直接初始化列表</span><br><span class="line">other_li = [4, 5, 6]</span><br><span class="line"></span><br><span class="line"># 在列表末尾添加元素</span><br><span class="line">li.append(1)    # li 现在是 [1]</span><br><span class="line">li.append(2)    # li 现在是 [1, 2]</span><br><span class="line">li.append(4)    # li 现在是 [1, 2, 4]</span><br><span class="line">li.append(3)    # li 现在是 [1, 2, 4, 3]</span><br><span class="line"># 移除列表末尾元素</span><br><span class="line">li.pop()        # =&gt; 3 li 现在是 [1, 2, 4]</span><br><span class="line"># 重新加进去</span><br><span class="line">li.append(3)    # li is now [1, 2, 4, 3] again.</span><br><span class="line"></span><br><span class="line"># 像其他语言访问数组一样访问列表</span><br><span class="line">li[0]  # =&gt; 1</span><br><span class="line"># 访问最后一个元素</span><br><span class="line">li[-1]  # =&gt; 3</span><br><span class="line"></span><br><span class="line"># 越界会抛出异常</span><br><span class="line">li[4]  # 抛出越界异常</span><br><span class="line"></span><br><span class="line"># 切片语法需要用到列表的索引访问</span><br><span class="line"># 可以看做数学之中左闭右开区间</span><br><span class="line">li[1:3]  # =&gt; [2, 4]</span><br><span class="line"># 省略开头的元素</span><br><span class="line">li[2:]  # =&gt; [4, 3]</span><br><span class="line"># 省略末尾的元素</span><br><span class="line">li[:3]  # =&gt; [1, 2, 4]</span><br><span class="line"></span><br><span class="line"># 删除特定元素</span><br><span class="line">del li[2]  # li 现在是 [1, 2, 3]</span><br><span class="line"></span><br><span class="line"># 合并列表</span><br><span class="line">li + other_li  # =&gt; [1, 2, 3, 4, 5, 6] - 并不会不改变这两个列表</span><br><span class="line"></span><br><span class="line"># 通过拼接来合并列表</span><br><span class="line">li.extend(other_li)  # li 是 [1, 2, 3, 4, 5, 6]</span><br><span class="line"></span><br><span class="line"># 用 in 来返回元素是否在列表中</span><br><span class="line">1 in li  # =&gt; True</span><br><span class="line"></span><br><span class="line"># 返回列表长度</span><br><span class="line">len(li)  # =&gt; 6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 元组类似于列表，但它是不可改变的</span><br><span class="line">tup = (1, 2, 3)</span><br><span class="line">tup[0]  # =&gt; 1</span><br><span class="line">tup[0] = 3  # 类型错误</span><br><span class="line"></span><br><span class="line"># 对于大多数的列表操作，也适用于元组</span><br><span class="line">len(tup)  # =&gt; 3</span><br><span class="line">tup + (4, 5, 6)  # =&gt; (1, 2, 3, 4, 5, 6)</span><br><span class="line">tup[:2]  # =&gt; (1, 2)</span><br><span class="line">2 in tup  # =&gt; True</span><br><span class="line"></span><br><span class="line"># 你可以将元组解包赋给多个变量</span><br><span class="line">a, b, c = (1, 2, 3)     # a 是 1，b 是 2，c 是 3</span><br><span class="line"># 如果不加括号，将会被自动视为元组</span><br><span class="line">d, e, f = 4, 5, 6</span><br><span class="line"># 现在我们可以看看交换两个数字是多么容易的事</span><br><span class="line">e, d = d, e     # d 是 5，e 是 4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 字典用来储存映射关系</span><br><span class="line">empty_dict = &#123;&#125;</span><br><span class="line"># 字典初始化</span><br><span class="line">filled_dict = &#123;&quot;one&quot;: 1, &quot;two&quot;: 2, &quot;three&quot;: 3&#125;</span><br><span class="line"></span><br><span class="line"># 字典也用中括号访问元素</span><br><span class="line">filled_dict[&quot;one&quot;]  # =&gt; 1</span><br><span class="line"></span><br><span class="line"># 把所有的键保存在列表中</span><br><span class="line">filled_dict.keys()  # =&gt; [&quot;three&quot;, &quot;two&quot;, &quot;one&quot;]</span><br><span class="line"># 键的顺序并不是唯一的，得到的不一定是这个顺序</span><br><span class="line"></span><br><span class="line"># 把所有的值保存在列表中</span><br><span class="line">filled_dict.values()  # =&gt; [3, 2, 1]</span><br><span class="line"># 和键的顺序相同</span><br><span class="line"></span><br><span class="line"># 判断一个键是否存在</span><br><span class="line">&quot;one&quot; in filled_dict  # =&gt; True</span><br><span class="line">1 in filled_dict  # =&gt; False</span><br><span class="line"></span><br><span class="line"># 查询一个不存在的键会抛出 KeyError</span><br><span class="line">filled_dict[&quot;four&quot;]  # KeyError</span><br><span class="line"></span><br><span class="line"># 用 get 方法来避免 KeyError</span><br><span class="line">filled_dict.get(&quot;one&quot;)  # =&gt; 1</span><br><span class="line">filled_dict.get(&quot;four&quot;)  # =&gt; None</span><br><span class="line"># get 方法支持在不存在的时候返回一个默认值</span><br><span class="line">filled_dict.get(&quot;one&quot;, 4)  # =&gt; 1</span><br><span class="line">filled_dict.get(&quot;four&quot;, 4)  # =&gt; 4</span><br><span class="line"></span><br><span class="line"># setdefault 是一个更安全的添加字典元素的方法</span><br><span class="line">filled_dict.setdefault(&quot;five&quot;, 5)  # filled_dict[&quot;five&quot;] 的值为 5</span><br><span class="line">filled_dict.setdefault(&quot;five&quot;, 6)  # filled_dict[&quot;five&quot;] 的值仍然是 5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 集合储存无顺序的元素</span><br><span class="line">empty_set = set()</span><br><span class="line"># 初始化一个集合</span><br><span class="line">some_set = set([1, 2, 2, 3, 4])  # some_set 现在是 set([1, 2, 3, 4])</span><br><span class="line"></span><br><span class="line"># Python 2.7 之后，大括号可以用来表示集合</span><br><span class="line">filled_set = &#123;1, 2, 2, 3, 4&#125;  # =&gt; &#123;1 2 3 4&#125;</span><br><span class="line"></span><br><span class="line"># 向集合添加元素</span><br><span class="line">filled_set.add(5)  # filled_set 现在是 &#123;1, 2, 3, 4, 5&#125;</span><br><span class="line"></span><br><span class="line"># 用 &amp; 来计算集合的交</span><br><span class="line">other_set = &#123;3, 4, 5, 6&#125;</span><br><span class="line">filled_set &amp; other_set  # =&gt; &#123;3, 4, 5&#125;</span><br><span class="line"></span><br><span class="line"># 用 | 来计算集合的并</span><br><span class="line">filled_set | other_set  # =&gt; &#123;1, 2, 3, 4, 5, 6&#125;</span><br><span class="line"></span><br><span class="line"># 用 - 来计算集合的差</span><br><span class="line">&#123;1, 2, 3, 4&#125; - &#123;2, 3, 5&#125;  # =&gt; &#123;1, 4&#125;</span><br><span class="line"></span><br><span class="line"># 用 in 来判断元素是否存在于集合中</span><br><span class="line">2 in filled_set  # =&gt; True</span><br><span class="line">10 in filled_set  # =&gt; False</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">####################################################</span><br><span class="line">## 3. 控制流程</span><br><span class="line">####################################################</span><br><span class="line"></span><br><span class="line"># 新建一个变量</span><br><span class="line">some_var = 5</span><br><span class="line"></span><br><span class="line"># 这是个 if 语句，在 python 中缩进是很重要的。</span><br><span class="line"># 下面的代码片段将会输出 &quot;some var is smaller than 10&quot;</span><br><span class="line">if some_var &gt; 10:</span><br><span class="line">    print &quot;some_var is totally bigger than 10.&quot;</span><br><span class="line">elif some_var &lt; 10:    # 这个 elif 语句是不必须的</span><br><span class="line">    print &quot;some_var is smaller than 10.&quot;</span><br><span class="line">else:           # 这个 else 也不是必须的</span><br><span class="line">    print &quot;some_var is indeed 10.&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">用for循环遍历列表</span><br><span class="line">输出:</span><br><span class="line">    dog is a mammal</span><br><span class="line">    cat is a mammal</span><br><span class="line">    mouse is a mammal</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">for animal in [&quot;dog&quot;, &quot;cat&quot;, &quot;mouse&quot;]:</span><br><span class="line">    # 你可以用 % 来格式化字符串</span><br><span class="line">    print &quot;%s is a mammal&quot; % animal</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">`range(number)` 返回从0到给定数字的列表</span><br><span class="line">输出:</span><br><span class="line">    0</span><br><span class="line">    1</span><br><span class="line">    2</span><br><span class="line">    3</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">for i in range(4):</span><br><span class="line">    print i</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">while 循环</span><br><span class="line">输出:</span><br><span class="line">    0</span><br><span class="line">    1</span><br><span class="line">    2</span><br><span class="line">    3</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">x = 0</span><br><span class="line">while x &lt; 4:</span><br><span class="line">    print x</span><br><span class="line">    x += 1  #  x = x + 1 的简写</span><br><span class="line"></span><br><span class="line"># 用 try/except 块来处理异常</span><br><span class="line"></span><br><span class="line"># Python 2.6 及以上适用:</span><br><span class="line">try:</span><br><span class="line">    # 用 raise 来抛出异常</span><br><span class="line">    raise IndexError(&quot;This is an index error&quot;)</span><br><span class="line">except IndexError as e:</span><br><span class="line">    pass    # pass 就是什么都不做，不过通常这里会做一些恢复工作</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">####################################################</span><br><span class="line">## 4. 函数</span><br><span class="line">####################################################</span><br><span class="line"></span><br><span class="line"># 用 def 来新建函数</span><br><span class="line">def add(x, y):</span><br><span class="line">    print &quot;x is %s and y is %s&quot; % (x, y)</span><br><span class="line">    return x + y    # 通过 return 来返回值</span><br><span class="line"></span><br><span class="line"># 调用带参数的函数</span><br><span class="line">add(5, 6)  # =&gt; 输出 &quot;x is 5 and y is 6&quot; 返回 11</span><br><span class="line"></span><br><span class="line"># 通过关键字赋值来调用函数</span><br><span class="line">add(y=6, x=5)   # 顺序是无所谓的</span><br><span class="line"></span><br><span class="line"># 我们也可以定义接受多个变量的函数，这些变量是按照顺序排列的</span><br><span class="line">def varargs(*args):</span><br><span class="line">    return args</span><br><span class="line"></span><br><span class="line">varargs(1, 2, 3)  # =&gt; (1,2,3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 我们也可以定义接受多个变量的函数，这些变量是按照关键字排列的</span><br><span class="line">def keyword_args(**kwargs):</span><br><span class="line">    return kwargs</span><br><span class="line"></span><br><span class="line"># 实际效果：</span><br><span class="line">keyword_args(big=&quot;foot&quot;, loch=&quot;ness&quot;)  # =&gt; &#123;&quot;big&quot;: &quot;foot&quot;, &quot;loch&quot;: &quot;ness&quot;&#125;</span><br><span class="line"></span><br><span class="line"># 你也可以同时将一个函数定义成两种形式</span><br><span class="line">def all_the_args(*args, **kwargs):</span><br><span class="line">    print args</span><br><span class="line">    print kwargs</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">all_the_args(1, 2, a=3, b=4) prints:</span><br><span class="line">    (1, 2)</span><br><span class="line">    &#123;&quot;a&quot;: 3, &quot;b&quot;: 4&#125;</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 当调用函数的时候，我们也可以进行相反的操作，把元组和字典展开为参数</span><br><span class="line">args = (1, 2, 3, 4)</span><br><span class="line">kwargs = &#123;&quot;a&quot;: 3, &quot;b&quot;: 4&#125;</span><br><span class="line">all_the_args(*args)  # 等价于 foo(1, 2, 3, 4)</span><br><span class="line">all_the_args(**kwargs)  # 等价于 foo(a=3, b=4)</span><br><span class="line">all_the_args(*args, **kwargs)  # 等价于 foo(1, 2, 3, 4, a=3, b=4)</span><br><span class="line"></span><br><span class="line"># 函数在 python 中是一等公民</span><br><span class="line">def create_adder(x):</span><br><span class="line">    def adder(y):</span><br><span class="line">        return x + y</span><br><span class="line">    return adder</span><br><span class="line"></span><br><span class="line">add_10 = create_adder(10)</span><br><span class="line">add_10(3)  # =&gt; 13</span><br><span class="line"></span><br><span class="line"># 匿名函数</span><br><span class="line">(lambda x: x &gt; 2)(3)  # =&gt; True</span><br><span class="line"></span><br><span class="line"># 内置高阶函数</span><br><span class="line">map(add_10, [1, 2, 3])  # =&gt; [11, 12, 13]</span><br><span class="line">filter(lambda x: x &gt; 5, [3, 4, 5, 6, 7])  # =&gt; [6, 7]</span><br><span class="line"></span><br><span class="line"># 可以用列表方法来对高阶函数进行更巧妙的引用</span><br><span class="line">[add_10(i) for i in [1, 2, 3]]  # =&gt; [11, 12, 13]</span><br><span class="line">[x for x in [3, 4, 5, 6, 7] if x &gt; 5]  # =&gt; [6, 7]</span><br><span class="line"></span><br><span class="line">####################################################</span><br><span class="line">## 5. 类</span><br><span class="line">####################################################</span><br><span class="line"></span><br><span class="line"># 我们新建的类是从 object 类中继承的</span><br><span class="line">class Human(object):</span><br><span class="line"></span><br><span class="line">     # 类属性，由所有类的对象共享</span><br><span class="line">    species = &quot;H. sapiens&quot;</span><br><span class="line"></span><br><span class="line">    # 基本构造函数</span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        # 将参数赋给对象成员属性</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    # 成员方法，参数要有 self</span><br><span class="line">    def say(self, msg):</span><br><span class="line">        return &quot;%s: %s&quot; % (self.name, msg)</span><br><span class="line"></span><br><span class="line">    # 类方法由所有类的对象共享</span><br><span class="line">    # 这类方法在调用时，会把类本身传给第一个参数</span><br><span class="line">    @classmethod</span><br><span class="line">    def get_species(cls):</span><br><span class="line">        return cls.species</span><br><span class="line"></span><br><span class="line">    # 静态方法是不需要类和对象的引用就可以调用的方法</span><br><span class="line">    @staticmethod</span><br><span class="line">    def grunt():</span><br><span class="line">        return &quot;*grunt*&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 实例化一个类</span><br><span class="line">i = Human(name=&quot;Ian&quot;)</span><br><span class="line">print i.say(&quot;hi&quot;)     # 输出 &quot;Ian: hi&quot;</span><br><span class="line"></span><br><span class="line">j = Human(&quot;Joel&quot;)</span><br><span class="line">print j.say(&quot;hello&quot;)  # 输出 &quot;Joel: hello&quot;</span><br><span class="line"></span><br><span class="line"># 访问类的方法</span><br><span class="line">i.get_species()  # =&gt; &quot;H. sapiens&quot;</span><br><span class="line"></span><br><span class="line"># 改变共享属性</span><br><span class="line">Human.species = &quot;H. neanderthalensis&quot;</span><br><span class="line">i.get_species()  # =&gt; &quot;H. neanderthalensis&quot;</span><br><span class="line">j.get_species()  # =&gt; &quot;H. neanderthalensis&quot;</span><br><span class="line"></span><br><span class="line"># 访问静态变量</span><br><span class="line">Human.grunt()  # =&gt; &quot;*grunt*&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">####################################################</span><br><span class="line">## 6. 模块</span><br><span class="line">####################################################</span><br><span class="line"></span><br><span class="line"># 我们可以导入其他模块</span><br><span class="line">import math</span><br><span class="line">print math.sqrt(16)  # =&gt; 4</span><br><span class="line"></span><br><span class="line"># 我们也可以从一个模块中导入特定的函数</span><br><span class="line">from math import ceil, floor</span><br><span class="line">print ceil(3.7)   # =&gt; 4.0</span><br><span class="line">print floor(3.7)  # =&gt; 3.0</span><br><span class="line"></span><br><span class="line"># 从模块中导入所有的函数</span><br><span class="line"># 警告：不推荐使用</span><br><span class="line">from math import *</span><br><span class="line"></span><br><span class="line"># 简写模块名</span><br><span class="line">import math as m</span><br><span class="line">math.sqrt(16) == m.sqrt(16)  # =&gt; True</span><br><span class="line"></span><br><span class="line"># Python的模块其实只是普通的python文件</span><br><span class="line"># 你也可以创建自己的模块，并且导入它们</span><br><span class="line"># 模块的名字就和文件的名字相同</span><br><span class="line"></span><br><span class="line"># 也可以通过下面的方法查看模块中有什么属性和方法</span><br><span class="line">import math</span><br><span class="line">dir(math)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/08/5分钟快速学习PHP/" rel="next" title="5分钟快速学习PHP">
+                <i class="fa fa-chevron-left"></i> 5分钟快速学习PHP
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Geewer Team" />
+            
+              <p class="site-author-name" itemprop="name">Geewer Team</p>
+              <p class="site-description motion-element" itemprop="description">Change yourself better than ever!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/geewer" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:lipan@geewer.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.geewer.com/" title="Geewer Tech" target="_blank">Geewer Tech</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速入门"><span class="nav-number">2.</span> <span class="nav-text">快速入门</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Geewer Team</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="http://www.geewer.com">Geewer Tech</a> 技术支持</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
