@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="linux,apache," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Change yourself better than ever!">
-<meta name="keywords" content="geewer,积微科技,广州积微信息科技有限公司">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Geewer Tech">
-<meta property="og:url" content="http://blog.geewer.com/tags/Markdown/index.html">
+<meta name="description" content="前言ubuntu下部署apache多站点相对简单很多，此处记录几个部署要点。 开始Ubuntu 下apache安装 1apt-get install apache2 多站点配置apache的配置文件位于：1/etc/apache2/apache.conf 这个配置文件在配置多站点的时候基本不用处理。 配置多站点文件只需要在  /etc/apache/sites-available文件中建立对应的子">
+<meta name="keywords" content="linux,apache">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu配置apache2多站点">
+<meta property="og:url" content="http://blog.geewer.com/2018/05/09/ubuntu配置apache2多站点/index.html">
 <meta property="og:site_name" content="Geewer Tech">
-<meta property="og:description" content="Change yourself better than ever!">
+<meta property="og:description" content="前言ubuntu下部署apache多站点相对简单很多，此处记录几个部署要点。 开始Ubuntu 下apache安装 1apt-get install apache2 多站点配置apache的配置文件位于：1/etc/apache2/apache.conf 这个配置文件在配置多站点的时候基本不用处理。 配置多站点文件只需要在  /etc/apache/sites-available文件中建立对应的子">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-09T09:55:03.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Geewer Tech">
-<meta name="twitter:description" content="Change yourself better than ever!">
+<meta name="twitter:title" content="ubuntu配置apache2多站点">
+<meta name="twitter:description" content="前言ubuntu下部署apache多站点相对简单很多，此处记录几个部署要点。 开始Ubuntu 下apache安装 1apt-get install apache2 多站点配置apache的配置文件位于：1/etc/apache2/apache.conf 这个配置文件在配置多站点的时候基本不用处理。 配置多站点文件只需要在  /etc/apache/sites-available文件中建立对应的子">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.geewer.com/tags/Markdown/"/>
+  <link rel="canonical" href="http://blog.geewer.com/2018/05/09/ubuntu配置apache2多站点/"/>
 
 
 
 
 
-  <title>标签: Markdown | Geewer Tech</title>
+  <title>ubuntu配置apache2多站点 | Geewer Tech</title>
   
 
 
@@ -144,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,54 +249,158 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Markdown<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.geewer.com/2018/05/09/ubuntu配置apache2多站点/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Geewer Team">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Geewer Tech">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/08/5分钟快速学习Markdown/" itemprop="url">
-              
-                <span itemprop="name">5分钟快速学习Markdown</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">ubuntu配置apache2多站点</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-08T15:56:41+08:00"
-              content="2018-05-08" >
-          05-08
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T17:42:24+08:00">
+                2018-05-09
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>ubuntu下部署apache多站点相对简单很多，此处记录几个部署要点。</p>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>Ubuntu 下apache安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install apache2</span><br></pre></td></tr></table></figure>
+<h3 id="多站点配置"><a href="#多站点配置" class="headerlink" title="多站点配置"></a>多站点配置</h3><p>apache的配置文件位于：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2/apache.conf</span><br></pre></td></tr></table></figure></p>
+<p>这个配置文件在配置多站点的时候基本不用处理。</p>
+<p>配置多站点文件只需要在  /etc/apache/sites-available文件中建立对应的子配置文件，使用ln命令在sites-enabled中进行链接即可。</p>
+<p>在sites-available中的配置文件如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">文件名： xxx.conf  //必须已conf结尾</span><br><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">        ServerAdmin webmaster@localhost</span><br><span class="line">        ServerName www.xxx.com</span><br><span class="line">        DocumentRoot /var/www/html/xxx/</span><br><span class="line">        &lt;Directory /var/www/html/xxx/ &gt;</span><br><span class="line">                Options Indexes FollowSymLinks MultiViews</span><br><span class="line">                AllowOverride All</span><br><span class="line">                Order allow,deny</span><br><span class="line">                allow from all</span><br><span class="line">        &lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+<p>配置系统连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ../sites-enabled</span><br><span class="line">ln -s ../site-available/xxx.conf .</span><br></pre></td></tr></table></figure></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>ubuntu apahce2的配置开启命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//开启mod配置</span><br><span class="line">a2enmod mod_xxx</span><br><span class="line"></span><br><span class="line">//关闭mod配置</span><br><span class="line">a2dismod mod_xxx</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/apache/" rel="tag"># apache</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/08/5分钟快速学习Markdown/" rel="next" title="5分钟快速学习Markdown">
+                <i class="fa fa-chevron-left"></i> 5分钟快速学习Markdown
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -303,6 +408,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -323,8 +432,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -418,6 +536,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始"><span class="nav-number">2.</span> <span class="nav-text">开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多站点配置"><span class="nav-number">3.</span> <span class="nav-text">多站点配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -550,6 +684,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
